@@ -1,0 +1,94 @@
+@use "../../../../node_modules/bootstrap/scss/bootstrap";
+
+@keyframes scale {
+    from {transform: scale(0.95)}
+    to {transform: scale(1)}
+}
+
+
+.loading {
+    @extend .d-flex;
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .8);
+}
+
+.loading-spinner{
+    @extend #{'.spinner-border'};
+    width: 3rem;
+    height: 3rem;
+    color: #267363;
+}
+
+.code-window{
+    @extend #{'.row', '.p-2'};
+    background-color: rgba(31, 31, 31, 0.4);
+    height: calc(100% - 200px - 2.5rem);
+    border-radius: 12px;
+    color: #fff;
+    animation-name: scale;
+    animation-duration: 1s;
+
+    .heading{
+        @extend .mt-2;
+        font-size: 1.5rem;
+    }
+
+    .import-editor{
+        @extend .pt-2;
+        height: 64px;
+    }
+
+    .code-editor{
+        @extend .pt-2;
+        height: calc(100% - 64px - 6rem);
+    }
+}
+
+.terminal-window{
+    @extend #{'.row', '.p-2', '.mt-3'};
+    background-color: rgba(31, 31, 31, 0.4);
+    border-radius: 12px;
+    color: #fff;
+    animation-name: scale;
+    animation-duration: 1s;
+
+    .terminal{
+        background-color: rgba(40, 120, 100, 0.1);
+        height: 200px;
+
+        .terminal-head{
+            @extend #{'.mt-3', '.p-2', '.d-flex'};
+            background-color: #000;
+            border-radius: 8px;
+
+            .status{
+                @extend .ms-2;
+                color: #fff;
+                font-size: 1.5rem;
+            }
+
+            .btn-run{
+                @extend #{'.btn', '.ms-auto', '.me-2'};
+                background-color: #272727;
+                color: #fff;
+            }
+        }
+        .terminal-content{
+            @extend .p-3;
+            overflow-y: scroll;
+            width: calc(100vw - 180px);
+            height: 110px;
+        }
+    }
+}

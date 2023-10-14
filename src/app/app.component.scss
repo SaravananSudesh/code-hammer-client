@@ -1,0 +1,71 @@
+@use "../../node_modules/bootstrap/scss/bootstrap";
+
+@keyframes swipe {
+    from {transform: translateX(-110px)}
+    to {transform: translateX(0)}
+}
+
+.topnav{
+    @extend #{'.d-flex', '.justify-content-center', '.py-3', '.d-block', '.d-md-none'};
+    background-color: #000000;
+    .nav-strip{
+        @extend #{'.nav', '.nav-pills'};
+
+        .nav-strip-item{
+            @extend .nav-item;
+
+            .nav-strip-link{
+                @extend #{'.nav-link', '.mx-2', '.mb-2', '.p-3'};
+                color: #fff;
+                transition: 0.3s;
+            }
+
+            .nav-strip-link:hover, .nav-strip-link:focus, .nav-strip-link:active, .nav-strip-link.active{
+                background-color: #267363;
+            }
+        }
+    }
+}
+
+.main-wrapper{
+    @extend #{'.d-flex','.flex-nowrap'};
+    height: 100vh;
+    background-color: #000000;
+    animation-name: swipe;
+    animation-duration: 1s;
+
+    .sidenav{
+        @extend #{'.d-flex','.flex-column', '.flex-shrink-0', '.m-2', '.p-1', '.d-none', '.d-md-block'};
+        background-color: rgba(31, 31, 31, 0.4);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+
+        .logo-icon{
+            @extend #{'.d-block', '.m-2', '.mb-3', '.p-3', '.text-decoration-none'};
+            background-color: #000000;
+            border-radius: 8px;
+        }
+
+        .nav-strip{
+            @extend #{'.nav', '.nav-pills', '.flex-column', '.mb-auto', '.text-center'};
+
+            .nav-strip-item{
+                @extend .nav-item;
+
+                .nav-strip-link{
+                    @extend #{'.nav-link', '.mx-2', '.mb-3', '.p-3'};
+                    color: #fff;
+                    transition: 0.3s;
+                }
+
+                .nav-strip-link:hover, .nav-strip-link:focus, .nav-strip-link:active, .nav-strip-link.active{
+                    background-color: #267363;
+                }
+            }
+        }
+    }
+
+    .editor-layout{
+        @extend #{'.container-fluid', '.m-2'};
+    }
+}

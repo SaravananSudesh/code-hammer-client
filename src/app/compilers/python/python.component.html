@@ -1,0 +1,20 @@
+<div class="loading" *ngIf="isLoading">
+    <div class="m-auto">
+        <div class="loading-spinner">
+        </div>
+    </div>
+</div>
+<div class="code-window">
+    <ngx-monaco-editor #editorContainer [options]="editorOptions" [(ngModel)]="code" class="code-editor"></ngx-monaco-editor>
+</div>
+<div class="terminal-window">
+    <div class="terminal">
+        <div class="terminal-head">
+            <div class="status">
+                Status : {{status}}
+            </div>
+            <button class="btn-run" (click)="runJavaCode()">Run</button>
+        </div>
+        <div class="terminal-content" [innerText]="output"></div>
+    </div>
+</div>
